@@ -1,0 +1,97 @@
+html {
+    box-sizing: border-box;
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    font-family: 'Robato', sans-serif;
+}
+
+:root {
+    --bg-dark: #1F2937;
+    --bg-button: #3882f6;
+    --bg-quote: #E5E7EB;
+    --text-dark: #1f2937;
+    --text-header-link: #e5e7eb;
+    --text-hero-main: #f9faf8;
+}
+
+/* General Styles */
+
+ul {
+    list-style: none;
+}
+
+/* Header Styles */
+
+header {
+    background-color: var(--bg-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem;
+}
+
+button {
+    padding: 8px 20px;
+    border-radius: 5px;
+    background-color: var(--bg-button);
+    color: var(--text-hero-main);
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+}
+
+.header-logo {
+    color: var(--text-hero-main);
+    font-size: 24px;
+}
+
+.header-links {
+    display: flex;
+    color: var(--text-header-link);
+    gap: 2rem;
+    font-size: 18px;
+}
+
+.hero {
+    background-color: var(--bg-dark);
+    padding: 5rem 5rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    height: 500px;
+}
+
+.hero-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.hero-info h1 {
+    color: var(--text-hero-main);
+    font-size: 48px;
+    font-weight: bolder;
+}
+
+.hero-info p {
+    color: var(--text-header-link);
+    font-size: 18px;
+    overflow: hidden;
+    max-width: 75ch;
+    white-space: wrap;
+}
+
+.hero img {
+    flex-shrink: 1;
+    max-width: 700px;
+}
+
+.main-info
