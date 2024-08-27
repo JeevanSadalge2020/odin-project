@@ -1,0 +1,15 @@
+.bg-dark {
+    background-color: black;
+    color: white;
+}
+
+.bg-light {
+    background-color: yellow;
+}
+
+.bg-dark,
+.bg-light {
+    border: 2px solid black;
+    font-family: Helvetica, 'Times New Roman', serif;
+    font-size: 28px;
+}
