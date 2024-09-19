@@ -2,56 +2,78 @@
 <html lang="en-US">
 
 <head>
-    <meta charset="utf-8" />
-    <title>Loops: Task 3</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
     <style>
-        p {
-            color: purple;
-            margin: 0.5em 0;
+        li {
+            margin-bottom: 10px;
         }
 
-        * {
-            box-sizing: border-box;
+        li button {
+            font-size: 12px;
+            margin-left: 20px;
+            color: #666;
         }
     </style>
-    <!-- <link rel="stylesheet" href="../styles.css" /> -->
 </head>
 
 <body>
 
-    <section class="preview">
+    <h1>My shopping list</h1>
 
+    <div>
+        <label for="item">Enter a new item:</label>
+        <input type="text" name="item" id="item">
+        <button id="add">Add item</button>
+    </div>
 
+    <ul>
+        <li>
+            <button>none</button>
+        </li>
+    </ul>
 
-    </section>
+    <script>
+        const addBtn = document.querySelector('button#add');
+        const inputField = document.querySelector('#item')
+        const div = document.querySelector('div');
+        let ul = document.querySelector('ul');
+        addBtn.addEventListener('click', (e) => {
+            if (!ul) {
+                let ul = document.createElement('ul');
+                div.appendChild(ul);
 
-</body>
-<script>
-    let i = 500;
-    const para = document.createElement('p');
-
-    function isPrime(num) {
-        for (let i = 2; i < num; i++) {
-            if (num % i === 0) {
-                return false;
             }
+            addNewItem(e);
+        })
+
+        let deleteButtons;
+
+        Array.from(deleteButtons).forEach(btn => btn.addEventListener('click', (e) => {
+            deleteItem(e);
+        }))
+
+        function deleteItem(e) {
+            let btn = (e.target);
+            console.log('btn', btn);
+            let li = btn.parentElement;
+            let ul = li.parentElement;
+            ul.removeChild(li)
         }
 
-        return true;
-    }
-
-    // Add your code here
-    let n = 50;
-    while (n > 1) {
-        if (isPrime(n)) {
-            para.textContent += `${n},`
+        function addNewItem(e) {
+            let value = inputField.value;
+            let li = document.createElement('li');
+            let button = document.createElement('button');
+            button.innerText = 'Delete'
+            li.innerText = value
+            li.appendChild(button)
+            ul.appendChild(li);
+            inputField.value = ""
+            deleteButtons = document.querySelectorAll('li button');
         }
-        n--;
-    }
-
-    // Don't edit the code below here!
-    const section = document.querySelector('section');
-    section.appendChild(para);
-</script>
+    </script>
+</body>
 
 </html>

@@ -1,2 +1,3 @@
 .vscode
-foundations-cource/test
+**/test/index.html
+tests/

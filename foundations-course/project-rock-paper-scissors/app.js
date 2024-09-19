@@ -8,7 +8,7 @@ function gerComputerChoice() {
 }
 
 function getHumanChoice() {
-    return prompt()
+    return prompt('Enter your choice')
 }
 
 function playRound(humanChoice, computerChoice) {
