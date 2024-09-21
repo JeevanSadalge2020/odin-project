@@ -1,39 +1,37 @@
+const ul = document.querySelector('#list');
+const yourScore_span = document.querySelector('#yourScore')
+const computerScore_span = document.querySelector('#computerScore')
+
 let humanScore = 0;
 let computerScore = 0;
 
-function gerComputerChoice() {
+computerScore_span.textContent = computerScore
+yourScore_span.textContent = humanScore
+
+ul.addEventListener('click', (e) => playGame(e))
+
+function getComputerChoice() {
     let arr = ['rock', 'paper', 'scissors'];
     let ind = Math.floor(Math.random() * 3);
     return arr[ind];
 }
 
-function getHumanChoice() {
-    let ul = document.querySelector('ul');
-    let res = "";
-    ul.addEventListener('click', (e) => {
-        let target = e.target.textContent.toLowerCase();
-        switch (target) {
-            case target: 'rock'
-                res = target
-            case target: 'paper'
-                res = target
-            case target: 'scissors'
-                res = target
+function playGame(e) {
+    if (humanScore >= 5 || computerScore >= 5) {
+        document.querySelector('h1').textContent = `${humanScore > computerScore ? "You Won" : "You Lose"}`
+
+        computerScore_span.textContent = computerScore
+        yourScore_span.textContent = humanScore
+    } else {
+        let computerChoice = getComputerChoice();
+        let humanChoice = e.target.textContent.toLowerCase();
+
+        if (computerChoice === humanChoice) humanScore++
+        else computerScore++
+
+        if (humanScore < 5 && computerScore < 5) {
+            computerScore_span.textContent = computerScore
+            yourScore_span.textContent = humanScore
         }
-    })
-    console.log('-', res);
-    playGame(res)
-}
-
-function playRound(humanChoice, computerChoice) {
-    humanChoice = humanChoice.toLowerCase();
-    if (humanChoice === computerChoice) humanScore++
-    else computerScore++;
-}
-
-function playGame(humanChoice) {
-    console.log('human', humanChoice);
-    let computerChoice = gerComputerChoice();
-    playRound(humanChoice, computerChoice);
-    console.log(`Score is : Human = ${humanScore} and Computer = ${computerScore}. ${humanScore >= computerScore ? 'You' : 'Computer'} won the game.`);
+    }
 }
