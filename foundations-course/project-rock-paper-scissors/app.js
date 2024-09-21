@@ -8,7 +8,21 @@ function gerComputerChoice() {
 }
 
 function getHumanChoice() {
-    return prompt('Enter your choice')
+    let ul = document.querySelector('ul');
+    let res = "";
+    ul.addEventListener('click', (e) => {
+        let target = e.target.textContent.toLowerCase();
+        switch (target) {
+            case target: 'rock'
+                res = target
+            case target: 'paper'
+                res = target
+            case target: 'scissors'
+                res = target
+        }
+    })
+    console.log('-', res);
+    playGame(res)
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -17,13 +31,9 @@ function playRound(humanChoice, computerChoice) {
     else computerScore++;
 }
 
-function playGame() {
-    for (let i = 1; i <= 5; i++) {
-        let humanChoice = getHumanChoice();
-        let computerChoice = gerComputerChoice();
-        playRound(humanChoice, computerChoice);
-    }
+function playGame(humanChoice) {
+    console.log('human', humanChoice);
+    let computerChoice = gerComputerChoice();
+    playRound(humanChoice, computerChoice);
     console.log(`Score is : Human = ${humanScore} and Computer = ${computerScore}. ${humanScore >= computerScore ? 'You' : 'Computer'} won the game.`);
 }
-
-playGame()

@@ -1,0 +1,11 @@
+button {
+    margin: 1rem;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    list-style: none;
+}
