@@ -1,0 +1,80 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+}
+
+:root {
+  --main-bg-color: #465a65;
+  --display-bg-color: #ddedc8;
+  --button-color: #f2f2f2;
+  --clear-button-color: rgb(249, 99, 99);
+  --equal-button-color: rgb(21, 180, 143);
+  --display-text-color: #020401;
+  --calculator-shadow-color: #b7b7b7;
+  --key-row-gap: 1rem;
+  --key-column-gap: 1rem;
+}
+
+#calculator {
+  background-color: var(--main-bg-color);
+  padding: 2rem;
+  border-radius: 1rem;
+  height: 80%;
+  box-shadow: 10px 10px 50px var(--calculator-shadow-color);
+}
+
+#display {
+  background-color: var(--display-bg-color);
+  color: var(--main-bg-color);
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 2rem 1rem;
+  font-size: 3rem;
+  border-radius: 5px;
+}
+
+#keys {
+  display: flex;
+  flex-direction: column;
+  gap: var(--key-row-gap);
+}
+
+.keys-row {
+  display: flex;
+  padding-top: 1rem;
+  gap: var(--key-column-gap);
+  justify-content: space-between;
+}
+
+.key {
+  background-color: var(--button-color);
+  min-width: 2rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1.75rem;
+  color: var(--main-bg-color);
+}
+
+.key:hover {
+  opacity: 0.9;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.key-plus {
+  flex-grow: 2;
+  background-color: var(--equal-button-color);
+  color: var(--button-color);
+  font-size: 2.5rem;
+}
+
+.key-clear {
+  background-color: var(--clear-button-color);
+  color: var(--button-color);
+}
