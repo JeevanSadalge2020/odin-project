@@ -67,7 +67,7 @@ body {
   transition: all 0.3s;
 }
 
-.key-plus {
+.operator-equals {
   flex-grow: 2;
   background-color: var(--equal-button-color);
   color: var(--button-color);
