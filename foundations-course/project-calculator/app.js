@@ -6,9 +6,12 @@ let divide = (a, b) => a / b;
 let firstNum = 0;
 let secondNum = 0;
 
-let operator_value = null;
+let displayField = document.querySelector("#display");
+let clearKey = document.querySelector(".key-clear");
+let equalsKey = document.querySelector(".operator-equals");
+let plusMinusKey = document.querySelector(".operator-plus-minus");
 
-let arr = [];
+let operator_value = null;
 
 function operate(operator, n1, n2) {
   return operator(n1, n2);
@@ -17,23 +20,34 @@ function operate(operator, n1, n2) {
 document.querySelectorAll(".operator").forEach((operator) => {
   operator.addEventListener("click", (e) => {
     firstNum = displayField.innerText;
-    clearDisplay();
     operator_value = [...e.target.classList].filter((cl) =>
       cl.includes("operator-")
     );
+    switch (operator_value[0]) {
+      case "operator-multiply":
+        operator_value = multiply;
+        break;
+      case "operator-plus":
+        operator_value = add;
+        break;
+      case "operator-minus":
+        operator_value = subtract;
+        break;
+      case "operator-divide":
+        operator_value = divide;
+        break;
+      default:
+        break;
+    }
   });
 });
-
-let displayField = document.querySelector("#display");
-let clearKey = document.querySelector(".key-clear");
-let equalsKey = document.querySelector(".equals");
 
 clearKey.addEventListener("click", clearDisplay);
 
 function clearDisplay() {
   displayField.innerText = "0";
-  firstNum = 0;
-  secondNum = 0;
+  firstNum = "";
+  secondNum = "";
   operator_value = null;
 }
 
@@ -44,12 +58,34 @@ function enter_into_display(num) {
 document.querySelectorAll(".key-number").forEach((key) => {
   key.addEventListener("click", (e) => {
     let number = e.target.textContent;
-    if (displayField.innerText === "0") {
-      firstNum = "";
-    }
     if (!operator_value) {
-      firstNum = firstNum + number;
+      if (displayField.innerText === "0") {
+        firstNum = number;
+      } else {
+        firstNum += number;
+      }
+      enter_into_display(firstNum);
+    } else {
+      if (displayField.innerText === "0") {
+        secondNum = "";
+      } else {
+        secondNum += number;
+      }
+      enter_into_display(secondNum);
     }
-    enter_into_display(firstNum);
   });
+});
+
+equalsKey.addEventListener("click", (e) => {
+  enter_into_display(operate(operator_value, +firstNum, +secondNum));
+});
+
+plusMinusKey.addEventListener("click", (e) => {
+  let number = e.target.textContent;
+  if (displayField.innerText === "0") {
+    firstNum = "-";
+  } else {
+    firstNum += number;
+  }
+  enter_into_display(firstNum);
 });
