@@ -5,6 +5,7 @@ let divide = (a, b) => a / b;
 
 let firstNum = 0;
 let secondNum = 0;
+let plusMinusToggle = false;
 
 let displayField = document.querySelector("#display");
 let clearKey = document.querySelector(".key-clear");
@@ -61,6 +62,8 @@ document.querySelectorAll(".key-number").forEach((key) => {
     if (!operator_value) {
       if (displayField.innerText === "0") {
         firstNum = number;
+      } else if (displayField.innerText === "-") {
+        firstNum = "-";
       } else {
         firstNum += number;
       }
@@ -81,10 +84,12 @@ equalsKey.addEventListener("click", (e) => {
 });
 
 plusMinusKey.addEventListener("click", (e) => {
+  e.target.classList.toggle("negative");
   let number = e.target.textContent;
   if (displayField.innerText === "0") {
     firstNum = "-";
   } else {
+    console.log("number", number);
     firstNum += number;
   }
   enter_into_display(firstNum);

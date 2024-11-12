@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping list example</title>
+    <script src="./app.js" defer></script>
     <style>
         li {
             margin-bottom: 10px;
@@ -50,13 +51,13 @@
 
         let deleteButtons;
 
-        Array.from(deleteButtons).forEach(btn => btn.addEventListener('click', (e) => {
-            deleteItem(e);
-        }))
+        // Array.from(deleteButtons).forEach(btn => btn.addEventListener('click', (e) => {
+        //     deleteItem(e);
+        // }))
 
         function deleteItem(e) {
             let btn = (e.target);
-            console.log('btn', btn);
+            // console.log('btn', btn);
             let li = btn.parentElement;
             let ul = li.parentElement;
             ul.removeChild(li)
