@@ -1,97 +1,160 @@
 html {
-    box-sizing: border-box;
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+  box-sizing: border-box;
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
-    font-family: 'Robato', sans-serif;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  font-family: "Robato", sans-serif;
 }
 
 :root {
-    --bg-dark: #1F2937;
-    --bg-button: #3882f6;
-    --bg-quote: #E5E7EB;
-    --text-dark: #1f2937;
-    --text-header-link: #e5e7eb;
-    --text-hero-main: #f9faf8;
+  --bg-dark: #1f2937;
+  --bg-button: #3882f6;
+  --bg-quote: #e5e7eb;
+  --text-dark: #1f2937;
+  --text-header-link: #e5e7eb;
+  --text-hero-main: #f9faf8;
 }
 
 /* General Styles */
 
 ul {
-    list-style: none;
+  list-style: none;
+}
+
+.heading-dark {
+  color: var(--text-dark);
 }
 
 /* Header Styles */
 
 header {
-    background-color: var(--bg-dark);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5rem;
+  background-color: var(--bg-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5rem;
 }
 
 button {
-    padding: 8px 20px;
-    border-radius: 5px;
-    background-color: var(--bg-button);
-    color: var(--text-hero-main);
-    font-weight: bold;
-    font-size: 18px;
-    border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  background-color: var(--bg-button);
+  color: var(--text-hero-main);
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
 }
 
 .header-logo {
-    color: var(--text-hero-main);
-    font-size: 24px;
+  color: var(--text-hero-main);
+  font-size: 24px;
 }
 
 .header-links {
-    display: flex;
-    color: var(--text-header-link);
-    gap: 2rem;
-    font-size: 18px;
+  display: flex;
+  color: var(--text-header-link);
+  gap: 2rem;
+  font-size: 18px;
 }
 
 .hero {
-    background-color: var(--bg-dark);
-    padding: 5rem 5rem;
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    height: 500px;
+  background-color: var(--bg-dark);
+  padding: 5rem 5rem;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  height: 500px;
+  margin: 0 0 2.5rem 0;
 }
 
 .hero-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .hero-info h1 {
-    color: var(--text-hero-main);
-    font-size: 48px;
-    font-weight: bolder;
+  color: var(--text-hero-main);
+  font-size: 48px;
+  font-weight: bolder;
 }
 
 .hero-info p {
-    color: var(--text-header-link);
-    font-size: 18px;
-    overflow: hidden;
-    max-width: 75ch;
-    white-space: wrap;
+  color: var(--text-header-link);
+  font-size: 18px;
+  overflow: hidden;
+  max-width: 75ch;
+  white-space: wrap;
 }
 
 .hero img {
-    flex-shrink: 1;
-    max-width: 700px;
+  flex-shrink: 1;
+  max-width: 700px;
 }
 
-.main-info
+.main-info {
+  padding: 1rem 5rem;
+}
+
+.main-info h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 2rem;
+}
+
+.main-info-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 2.5rem 0;
+}
+
+/* The image container is allowed to grow and shrink and its base size is set to 25opx */
+.main-info-cards article {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1 1 250px;
+  text-align: center;
+}
+
+/* Setting width and height to 100% is very important as it means, image fills the container. Object fit - cover means the image content can displays a little bit which is fine*/
+.main-info-cards img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.main-quote {
+  font-size: 36px;
+  padding: 5rem 10rem;
+  font-style: italic;
+  font-weight: lighter;
+  background-color: var(--bg-quote);
+  color: var(--text-dark);
+  margin: 2.5rem 0;
+}
+
+.other-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2rem 5rem;
+}
+
+.other-info h2 {
+  font-size: 30px;
+}
+
+.other-info p {
+  font-size: 24px;
+  color: var(--text-dark);
+}
