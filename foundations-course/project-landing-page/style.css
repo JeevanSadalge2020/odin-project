@@ -27,8 +27,13 @@ ul {
   list-style: none;
 }
 
+p {
+  color: var(--text-dark);
+}
+
 .heading-dark {
   color: var(--text-dark);
+  margin-bottom: 1rem;
 }
 
 /* Header Styles */
@@ -166,7 +171,8 @@ button:hover {
 .other-info {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  gap: 5rem;
   padding: 2rem 5rem;
 }
 
@@ -177,6 +183,10 @@ button:hover {
 .other-info p {
   font-size: 24px;
   color: var(--text-dark);
+}
+
+.other-info button {
+  flex: 0 1 200px;
 }
 
 footer {
