@@ -42,13 +42,20 @@ header {
 }
 
 button {
-  padding: 8px 20px;
+  padding: 10px 20px;
   border-radius: 5px;
   background-color: var(--bg-button);
   color: var(--text-hero-main);
   font-weight: bold;
   font-size: 18px;
   border: none;
+  margin: 2rem 0;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s linear;
 }
 
 .header-logo {
@@ -61,6 +68,17 @@ button {
   color: var(--text-header-link);
   gap: 2rem;
   font-size: 18px;
+}
+
+.header-links > li {
+  border-bottom: 1px solid transparent;
+  padding-bottom: 5px;
+}
+
+.header-links > li:hover {
+  cursor: pointer;
+  border-bottom-color: var(--bg-quote);
+  transition: border 0.3s linear;
 }
 
 .hero {
@@ -83,7 +101,7 @@ button {
 .hero-info h1 {
   color: var(--text-hero-main);
   font-size: 48px;
-  font-weight: bolder;
+  font-weight: 900;
 }
 
 .hero-info p {
@@ -107,6 +125,7 @@ button {
   text-align: center;
   font-size: 36px;
   margin-bottom: 2rem;
+  font-weight: 900;
 }
 
 .main-info-cards {
@@ -121,8 +140,9 @@ button {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  flex: 1 1 250px;
+  flex: 1 1 50px;
   text-align: center;
+  min-height: 100px;
 }
 
 /* Setting width and height to 100% is very important as it means, image fills the container. Object fit - cover means the image content can displays a little bit which is fine*/
@@ -151,10 +171,23 @@ button {
 }
 
 .other-info h2 {
-  font-size: 30px;
+  font-size: 36px;
 }
 
 .other-info p {
   font-size: 24px;
   color: var(--text-dark);
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-dark);
+  padding: 3rem 0;
+}
+
+footer div {
+  color: var(--text-header-link);
+  font-size: 24px;
 }
