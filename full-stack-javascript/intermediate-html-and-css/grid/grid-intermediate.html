@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        body {
+            min-height: 100vh;
+            font-size: 15px;
+            color: white;
+        }
+
+        .grid-container {
+            width: 310px;
+            height: 310px;
+            border: 5px solid rgb(0, 0, 0);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-rows: 100px 150px;
+            grid-template-columns: 80px 160px 1fr;
+            gap: 5px;
+        }
+
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-item {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+
+<body class="center">
+    <div class="grid-container">
+        <div class="grid-item item1 center">one</div>
+        <div class="grid-item item2 center">two</div>
+        <div class="grid-item item3 center">three</div>
+        <div class="grid-item item4 center">four</div>
+        <div class="grid-item item5 center">five</div>
+        <div class="grid-item item6 center">six</div>
+        <div class="grid-item item7 center">seven</div>
+    </div>
+</body>
+
+</html>
