@@ -10,6 +10,7 @@ body {
   --main-bg-color: #465a65;
   --display-bg-color: #ddedc8;
   --button-color: #f2f2f2;
+  --operator-active-color: orange;
   --clear-button-color: rgb(249, 99, 99);
   --equal-button-color: rgb(21, 180, 143);
   --display-text-color: #020401;
@@ -59,6 +60,11 @@ body {
   border-radius: 5px;
   font-size: 1.75rem;
   color: var(--main-bg-color);
+}
+
+.key:active {
+  background-color: var(--main-bg-color);
+  transition: all 0.2s linear;
 }
 
 .key:hover {

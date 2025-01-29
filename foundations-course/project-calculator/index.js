@@ -1,16 +1,13 @@
-let add = (a, b) => a + b;
-let subtract = (a, b) => a - b;
-let multiply = (a, b) => a * b;
-let divide = (a, b) => a / b;
-
 let displayField = document.querySelector("#display");
 let clearKey = document.querySelector(".key-clear");
 let equalsKey = document.querySelector(".operator-equals");
 let deleteKey = document.querySelector(".delete");
 
-let operand1;
-let operand2;
-let operator_value = null;
+let operator_active = false;
+
+let eval_keys = document.querySelectorAll(".key-number, .operator");
+
+let equation = "";
 
 let number_keys =
   document.querySelectorAll(".key-number"); /* These are numerical keys */
@@ -22,25 +19,32 @@ let operator_keys =
 
 operator_keys.forEach((key) => {
   key.addEventListener("click", () => {
-    highlight()
+    operator_active = true;
   });
 });
 
-function highlight(key){
-  
-}
-
 number_keys.forEach((key) => {
   key.addEventListener("click", (e) => {
-    let key_text = e.target.textContent;
-    if (+displayField.textContent === 0) {
-      /* If display has 0 in it */
-      displayText(key_text);
+    let key_text = key.textContent;
+  });
+});
+
+eval_keys.forEach((key) => {
+  key.addEventListener("click", () => {
+    let operator = "";
+    if (key.classList.contains("operator-multiply")) {
+      operator = "*";
+    } else if (key.classList.contains("operator-minus")) {
+      operator = "-";
+    } else if (key.classList.contains("operator-plus")) {
+      operator = "+";
+    } else if (key.classList.contains("operator-divide")) {
+      operator = "/";
     } else {
-      /* If display has any other number in it, then concatenate that number */
-      let old_text = displayField.textContent;
-      displayText(old_text + key_text);
+      operator = key.textContent;
     }
+    equation += operator;
+    console.log("equation", equation);
   });
 });
 
@@ -54,6 +58,11 @@ function displayText(text) {
 
 clearKey.addEventListener("click", () => {
   reset();
+});
+
+equalsKey.addEventListener("click", () => {
+  let result = eval(equation);
+  if (result) displayText(result);
 });
 
 deleteKey.addEventListener("click", () => {
@@ -72,9 +81,8 @@ function clearDisplay() {
 
 function reset() {
   clearDisplay();
-  operand1 = "";
-  operand2 = "";
-  operator_value = null;
+  equation = "";
+  operator_active = false;
   document
     .querySelectorAll(".operator-active")
     .forEach((key) => key.classList.remove("operator-active"));
